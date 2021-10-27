@@ -1,0 +1,51 @@
+.flexImageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.flexImageContainer div {
+  flex: 0 0 23%;
+  max-width: 90%;
+  max-height: 90%;
+  min-width: 260px;
+  min-height: 260px;
+  margin-bottom: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+#overlay {
+    position: absolute;
+    z-index: 999;
+    height: 119.89px;
+    width: 120px;
+}
+
+
+.incorrectMatch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ff3b3099;
+  background-blend-mode: multiply;
+}
+
+.correctMatch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #34c75999;
+  background-blend-mode: multiply;
+}
+
+.container {
+  text-align: center;
+}

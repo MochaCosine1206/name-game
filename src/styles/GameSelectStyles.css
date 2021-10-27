@@ -1,0 +1,14 @@
+.selectionScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #223547;
+    height: 100vh;
+    width: 100vw;
+}
+
+.selectionScreen h3 {
+    color: white;
+}
+

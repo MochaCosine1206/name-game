@@ -1,0 +1,22 @@
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #223547;
+  height: 104px;
+}
+
+nav img, nav .chevron {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.chevron {
+  cursor: pointer;
+  height: 20.5px;
+  width: 12px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-left: 24px;
+}

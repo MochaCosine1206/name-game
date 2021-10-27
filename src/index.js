@@ -2,11 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { Provider as GameModeProvider } from './context/gameContext';
+import { Provider as EmployeeProvider } from './context/employeeContext';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <EmployeeProvider>
+      <GameModeProvider>
+        <App />
+      </GameModeProvider>
+    </EmployeeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
