@@ -49,9 +49,7 @@ const getEmployees = (dispatch) => {
 const setEmployee =
   (dispatch) =>
   ({ selectedEmployeeId, randomEmployeeId }) => {
-    console.log(selectedEmployeeId, randomEmployeeId);
     if (selectedEmployeeId === randomEmployeeId) {
-      console.log("match");
       dispatch({
         type: "CORRECT_EMPLOYEE_MATCH",
         payload: {
@@ -59,7 +57,6 @@ const setEmployee =
         },
       });
     } else {
-      console.log("No match");
       dispatch({
         type: "INCORRECT_EMPLOYEE_MATCH",
         payload: {

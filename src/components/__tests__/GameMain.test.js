@@ -3,7 +3,6 @@ import GameMain from "../GameMain";
 import { render, screen } from "@testing-library/react";
 import { Provider as GameModeProvider } from "../../context/gameContext";
 import { Provider as EmployeeProvider } from "../../context/employeeContext";
-import userEvent from "@testing-library/user-event";
 
 describe("<GameMain />", () => {
   beforeEach(() => {
