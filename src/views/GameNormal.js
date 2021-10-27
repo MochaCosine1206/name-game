@@ -11,13 +11,12 @@ const GameNormal = ({ changeGameMode }) => {
   const {
     employeeList,
     randomEmployee,
-    selectedEmployee,
     employeeMatch,
     incorrectEmployees,
   } = state;
   useEffect(() => {
     getEmployees();
-  }, []);
+  }, [getEmployees]);
 
   return (
     <Fragment>

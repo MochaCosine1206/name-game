@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Context as DataContext } from '../context/gameContext'
 import Button from '../components/Button';
 import hero from '../hero.svg'
@@ -7,7 +7,7 @@ import "../styles/GameSelectStyles.css"
 
 
 const GameSelect = () => {
-    const { state, changeGameMode } = useContext(DataContext);
+    const { changeGameMode } = useContext(DataContext);
   
     return (
         <div className="selectionScreen">

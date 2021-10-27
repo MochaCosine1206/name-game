@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { Context as DataContext } from '../context/gameContext'
+import React from "react";
 import logo from "../theNameGameLogo.svg";
 import chevron from "../chevron.svg"
 

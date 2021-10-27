@@ -1,6 +1,5 @@
 import createDataContext from "./createDataContext";
 import employees from "../api/employees";
-import { act } from "react-dom/test-utils";
 
 const dataReducer = (state, action) => {
   switch (action.type) {
