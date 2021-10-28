@@ -22,6 +22,17 @@ const dataReducer = (state, action) => {
           action.payload.incorrectEmployeeMatch,
         ],
       };
+    case "INCREMENT_ROUND":
+      return {
+        ...state,
+        currentRound: action.payload.currentRound
+      };
+    case "RESET_ITEMS":
+      return {
+        ...state,
+        employeeMatch: "",
+        incorrectEmployees: [],
+      }
     default:
       return state;
   }
@@ -66,14 +77,30 @@ const setEmployee =
     }
   };
 
+const setRound = (dispatch) => ({currentRound}) => {
+  dispatch({
+    type: "INCREMENT_ROUND",
+    payload: {
+      currentRound: currentRound += 1
+    }
+  })
+}
+
+const resetItems = (dispatch) => () => {
+  dispatch({
+    type: "RESET_ITEMS"
+  })
+}
+
 export const { Provider, Context } = createDataContext(
   dataReducer,
-  { getEmployees, setEmployee },
+  { getEmployees, setEmployee, resetItems, setRound},
   {
     employeeList: [],
     selectedEmployee: "",
     randomEmployee: "",
     employeeMatch: "",
     incorrectEmployees: [],
+    currentRound: 1
   }
 );

@@ -22,5 +22,5 @@ const changeGameMode = (dispatch) => ({ gameMode }) => {
 export const { Provider, Context } = createDataContext(
   dataReducer,
   { changeGameMode },
-  { gameMode: "selectionScreen" }
+  { gameMode: "gameOver" }
 );

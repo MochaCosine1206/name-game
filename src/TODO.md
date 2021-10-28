@@ -1,6 +1,6 @@
 # TODO
 
-- [] Add rounds of play
+- [x] Add rounds of play
     - [] As a user I should have 6 rounds to play.  If I guess incorrectly, I can guess again, but that round is marked as incorrect.  I must find the correct employee before I can advance to the next round by pressing the continue button at the bottom of the screen.
         - To do this: 
             - [] We need to have a round counter up to six.

@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { Context as DataContext } from "../context/gameContext";
 import GameSelect from "../views/GameSelect";
-import GameNormal from "../views/GameNormal"
+import GameNormal from "../views/GameNormal";
+import GameOver from "../views/GameOver";
+
 
 
 const GameMain = () => {
@@ -13,6 +15,8 @@ const GameMain = () => {
         return <GameSelect />;
       case "normal":
         return (<GameNormal changeGameMode={changeGameMode}/>);
+      case "gameOver":
+        return (<GameOver gameMode={gameMode} />)
       default:
         return ("No Mode")
     }

@@ -1,0 +1,13 @@
+.upperSection {
+    background-color: #223547;
+    height: calc(50vh - 104px);
+}
+
+.lowerSection {
+    height: 50vh;
+    text-align: center;
+}
+
+.lowerSection button {
+    transform: translateY(-50%);
+}

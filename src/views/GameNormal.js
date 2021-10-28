@@ -2,51 +2,65 @@ import React, { useEffect, useContext, Fragment } from "react";
 import { Context as DataContext } from "../context/employeeContext";
 import NavBar from "../components/NavBar";
 import Button from "../components/Button";
-import match from "../match.svg"
-import nomatch from "../nomatch.svg"
+import match from "../match.svg";
+import nomatch from "../nomatch.svg";
 import "../styles/GameStyles.css";
 
 // TODO, move employee photos and container to own components
-// TODO, when button is clicked, run getEmployees, add to arrays for scoring and reset employeeMatch and incorrectEmployees 
+// TODO, when button is clicked, run getEmployees, add to arrays for scoring and reset employeeMatch and incorrectEmployees
 
 const GameNormal = ({ changeGameMode }) => {
-  const { state, getEmployees, setEmployee } = useContext(DataContext);
+  const { state, getEmployees, setEmployee, resetItems, setRound } =
+    useContext(DataContext);
   const {
     employeeList,
     randomEmployee,
     employeeMatch,
     incorrectEmployees,
+    currentRound,
   } = state;
+
   useEffect(() => {
     getEmployees();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getNewEmployees = () => {
-    console.log("moving to new round...")
-    // clear employeeMatch and incorrectEmployees
-    // increment correct or incorrect round
-    // increment round
-    // getEmployees
-  }
+  const nextRound = () => {
+    if (currentRound <= 5) {
+      resetItems();
+      setRound({ currentRound });
+      getEmployees();
+
+    } else {
+      changeGameMode({ gameMode: "gameOver" })
+    }
+  };
 
   return (
     <Fragment>
-    <NavBar changeGameMode={changeGameMode} />
-    <div className="container">
-      <h2>Which one of these good looking photos is the real</h2>
-      <h1>
-        {randomEmployee.firstName} {randomEmployee.lastName}
-      </h1>
+      <NavBar changeGameMode={changeGameMode} />
+      <div className="container">
+        <h2>Which one of these good looking photos is the real</h2>
+        <h1>
+          {randomEmployee.firstName} {randomEmployee.lastName}
+        </h1>
       </div>
       <div className="flexImageContainer">
         {employeeList.map((employee) => (
           <div className="imageContainer" key={employee.id}>
-            {incorrectEmployees.includes(employee.id)
-              ? <div id="overlay" style={{ backgroundImage: `url(${nomatch})`}} alt="No match" />
-              : employeeMatch === employee.id
-              ? <div id="overlay" style={{ backgroundImage: `url(${match})`}} alt="match" />
-              : null}
+            {incorrectEmployees.includes(employee.id) ? (
+              <div
+                id="overlay"
+                style={{ backgroundImage: `url(${nomatch})` }}
+                alt="No match"
+              />
+            ) : employeeMatch === employee.id ? (
+              <div
+                id="overlay"
+                style={{ backgroundImage: `url(${match})` }}
+                alt="match"
+              />
+            ) : null}
             <div
               className={
                 incorrectEmployees.includes(employee.id)
@@ -68,10 +82,13 @@ const GameNormal = ({ changeGameMode }) => {
         ))}
       </div>
       <div className="container">
-      <Button disabled={employeeMatch !== "" ? false : true} onClick={e => getNewEmployees(e)}>
-        Continue
-      </Button>
-    </div>
+        <Button
+          disabled={employeeMatch !== "" ? false : true}
+          onClick={(e) => nextRound()}
+        >
+          Continue
+        </Button>
+      </div>
     </Fragment>
   );
 };
